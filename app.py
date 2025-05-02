@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import requests
-import plotly.express as px
 
 # Sidebar
 st.sidebar.header("Navigasi")
@@ -21,7 +20,7 @@ elif selection == "Galeri":
 else:
     st.title("Kontak")
     st.write("Hubungi kami melalui email: fathii.athallah@gmail.com")
-    
+
 #1 Element Text
 st.title("My First Streamlit App")
 st.header("Nama : Muhammad Fathi Athallah Anantaasri")
@@ -115,37 +114,8 @@ df = pd.DataFrame(
 )
 st.map(df)
 
-#4.4 Visualisasi st.plotly_chart()
-st.title("Dashboard Penjualan")
-st.subheader("Visualisasi Penjualan")
-st.write("Visualisasi Penjualan menggunakan Plotly")
-data = pd.DataFrame({
-    'Tahun' : [2018, 2019, 2020, 2021, 2022],
-    'Penjualan' : [100, 200, 300, 400, 500],
-    'Pengeluaran' : [50, 100, 150, 200, 250],
-    'Keuntungan' : [50, 100, 150, 200, 250]
-})
-fig_penjualan = px.line(data, x='Tahun', y='Penjualan', title='Grafik Penjualan')
-data,
-x= 'Tahun',
-y= 'Pengeluaran',
-markers=True,
-text='Penjualan',
-title='Grafik Penjualan'
-labels={'Penjualan':'Jumlah Penjualan', 'Tahun':'Tahun'},
-template= 'plotly_dark',
-color_discrete_sequence=['#FF5733']
 
-fig_pengeluaran = px.line(data, x='Tahun', y='Pengeluaran', title='Grafik Pengeluaran')
-fig_pengeluaran.update_traces(mode='markers+lines', marker=dict(size=10, color='blue'))
-fig_pengeluaran.update_layout(title_text='Grafik Pengeluaran', title_x=0.5)
 
-fig_keuntungan = px.line(data, x='Tahun', y='Keuntungan', title='Grafik Keuntungan')
-fig_keuntungan.update_traces(mode='markers+lines', marker=dict(size=10, color='green'))
-fig_keuntungan.update_layout(title_text='Grafik Keuntungan', title_x=0.5)
-st.plotly_chart(fig_penjualan, use_container_width=True)
-st.plotly_chart(fig_pengeluaran, use_container_width=True)
-st.plotly_chart(fig_keuntungan, use_container_width=True)
 
 #5 Input Form
 st.subheader("Lembar Kerja Input Form")
